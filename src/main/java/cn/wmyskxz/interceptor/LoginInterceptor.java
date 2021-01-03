@@ -1,5 +1,6 @@
 package cn.wmyskxz.interceptor;
 
+import cn.wmyskxz.pojo.Staff;
 import cn.wmyskxz.pojo.User;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -53,13 +54,29 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 				"/admin"
 		};
 		String uri = request.getRequestURI();
-		if (!Arrays.asList(noNeedAuthPage).contains(uri)) {
+
+
+		/*if (!Arrays.asList(noNeedAuthPage).contains(uri)) {
 			User user = (User) session.getAttribute("user");
 			if (null == user) {
 				response.sendRedirect("/loginPage");
 				return false;
 			}
+		}*/
+
+
+		if (!Arrays.asList(noNeedAuthPage).contains(uri)) {
+			Staff staff = (Staff) session.getAttribute("staff");
+			if (null == staff) {
+				response.sendRedirect("/admin/login");
+				return false;
+			}
 		}
+
+
+
+
+
 		return true;
 	}
 

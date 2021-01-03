@@ -1,5 +1,7 @@
 package cn.wmyskxz.pojo;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 import java.util.List;
 
@@ -18,12 +20,16 @@ public class Order {
 
     private String user_message;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date create_date;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date pay_date;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date delivery_date;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date confirm_date;
 
     private Integer user_id;

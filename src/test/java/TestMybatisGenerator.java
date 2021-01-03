@@ -19,6 +19,9 @@ import java.util.List;
 public class TestMybatisGenerator {
 
 	public static void main(String[] args) throws Exception {
+
+		/*
+
 		// warnings 为用于放置生成过程中警告信息的集合对象
 		List<String> warnings = new ArrayList<String>();
 		// 指定是否覆盖重名文件
@@ -37,7 +40,13 @@ public class TestMybatisGenerator {
 		myBatisGenerator.generate(null);
 		// 打印提示信息
 		System.out.println("MyBatis 逆向工程执行成功，刷新项目查看文件！");
+
+		 */
+
+
 	}
+
+
 
 //	@Autowired
 //	CategoryMapper categoryMapper;

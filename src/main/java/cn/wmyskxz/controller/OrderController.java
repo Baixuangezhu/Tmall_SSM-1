@@ -30,6 +30,14 @@ public class OrderController {
 		return "admin/listOrder";
 	}
 
+
+	@RequestMapping("/editOrder")
+	public String edit(Integer id, Model model) {
+		Order order = orderService.get(id);
+		model.addAttribute("order", order);
+		return "admin/editOrder";
+	}
+
 	@RequestMapping("updateOrder")
 	public String update(Order order) {
 		orderService.update(order);

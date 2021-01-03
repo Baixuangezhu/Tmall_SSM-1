@@ -1,24 +1,8 @@
-
-<%
-    request.getRequestDispatcher("/admin").forward(request, response);
-
-%>
-
-
-
-
-
-
-
-
-
-
-<%--
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" isELIgnored="false" %>
 
 
-<%@include file="views/include/header.jsp" %>
+<%@include file="../include/header.jsp" %>
 
 <style>
     .header {
@@ -45,9 +29,7 @@
 </style>
 <div class="mallPage" id="mallPage">
     <div class="header">
-        <a href="/home">
-            <img src="/img/fore/tmallLogo.png" class="tm-logo">
-        </a>
+        <a class="navbar-brand" href="">订单管理系统</a>
     </div>
 </div>
 
@@ -185,12 +167,12 @@
                     </div>
                 </div>
                 <div class="login-title">密码登录</div>
-                <form action="/login" class="loginForm" method="post">
+                <form action="/admin/Login" class="loginForm" method="post">
                     <div class="field">
                         <span class="loginInputIcon">
 					        <span class=" glyphicon glyphicon-user"></span>
 				        </span>
-                        <input id="name" name="name" placeholder="手机/会员名/邮箱" type="text">
+                        <input id="name" name="name" placeholder="账号" type="text">
                     </div>
                     <div class="field">
                         <span class="loginInputIcon ">
@@ -199,15 +181,13 @@
                         <input id="password" name="password" type="password" placeholder="密码" type="text">
                     </div>
 
-                    <span class="text-danger">不要输入真实的天猫账号密码</span><br><br>
+                    <span class="text-danger">请输入账号密码</span><br><br>
 
                     <div style="margin-top:10px">
                         <button class="redButton" type="submit">登 录</button>
                     </div>
 
                     <div style="margin-top: 20px;">
-                        <a class="notImplementLink" href="#nowhere">忘记登录密码</a>
-                        <a href="registerPage" class="pull-right">免费注册</a>
                     </div>
                 </form>
             </div>
@@ -218,8 +198,3 @@
 
 </body>
 </html>
-
-
---%>
-
-

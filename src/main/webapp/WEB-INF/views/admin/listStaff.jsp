@@ -41,14 +41,15 @@
                 <li>
                     <a href="listCategory"><i class="fa fa-bars"></i> 分类管理</a>
                 </li>
-                <li>
-                    <a href="listUser"><i class="fa fa-user"></i> 客户管理</a>
-                </li>
+                <%--<li>
+                    <a class="active-menu" href="listUser"><i class="fa fa-user"></i> 客户管理</a>
+                </li>--%>
                 <li>
                     <a href="listOrder"><i class="fa fa-list-alt"></i> 订单管理</a>
                 </li>
                 <li>
-                    <a class="active-menu" href="listLink"><i class="fa fa-link"></i> 店员管理</a>
+                    <%-- <a href="listLink"><i class="fa fa-link"></i> 推荐链接管理</a>--%>
+                    <a href="listStaff"><i class="fa fa-user"></i> 店员管理</a>
                 </li>
             </ul>
         </div>
@@ -71,26 +72,34 @@
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            店员列表
+                            店员管理表
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                     <tr>
-                                        <th>编号</th>
-                                        <th>姓名</th>
-                                        <th>电话</th>
+                                        <th>店员编号</th>
+                                        <th>店员姓名</th>
+                                        <th>联系方式</th>
                                         <th>修改</th>
+                                        <th>删除</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach items="${links}" var="l">
+                                    <c:forEach items="${staffs}" var="s">
                                         <tr>
-                                            <td>${l.id}</td>
-                                            <td>${l.text}</td>
-                                            <td>${l.link}</td>
-                                            <td>${l.link}</td>
+                                            <td>${s.id}</td>
+                                            <td>${s.name}</td>
+                                            <td>${s.phone}</td>
+
+                                            <td>
+                                                <a href="editStaff?id=${s.id}"><span class="glyphicon glyphicon-edit"></span></a>
+                                            </td>
+
+                                            <td>
+                                                <a href="deleteStaff?id=${s.id}"><span class="glyphicon glyphicon-trash"></span></a>
+                                            </td>
 
                                         </tr>
                                     </c:forEach>
@@ -101,6 +110,31 @@
                         </div>
                     </div>
                     <!--End Advanced Tables -->
+                </div>
+            </div>
+
+            <%-- 产品增加表单 --%>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            新增店员
+                        </div>
+                        <div class="panel-body">
+                            <form action="addStaff" role="form">
+                                <input type="hidden" name="id" value="">
+                                <label>姓名：</label>
+                                <input type="text" class="form-control" name="name" placeholder="请在这里输入店员姓名">
+                                <label>联系方式：</label>
+                                <input type="text" class="form-control" name="phone" placeholder="请在这里输入店员联系方式">
+                                <label>密码：</label>
+                                <input type="text" class="form-control" name="password" placeholder="请在这里输入初始密码">
+
+                                <input type="submit" class="btn btn-default pull-right" value="添加">
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
 

@@ -41,14 +41,15 @@
                 <li>
                     <a href="listCategory"><i class="fa fa-bars"></i> 分类管理</a>
                 </li>
-                <li>
-                    <a href="listUser"><i class="fa fa-user"></i> 用户管理</a>
-                </li>
+                <%--<li>
+                    <a href="listUser"><i class="fa fa-user"></i> 客户管理</a>
+                </li>--%>
                 <li>
                     <a class="active-menu" href="listOrder"><i class="fa fa-list-alt"></i> 订单管理</a>
                 </li>
                 <li>
-                    <a href="listLink"><i class="fa fa-link"></i> 推荐链接管理</a>
+                    <%-- <a href="listLink"><i class="fa fa-link"></i> 推荐链接管理</a>--%>
+                    <a href="listStaff"><i class="fa fa-user"></i> 店员管理</a>
                 </li>
             </ul>
         </div>
@@ -78,40 +79,29 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                     <tr>
-                                        <th>id</th>
                                         <th>订单号</th>
                                         <th>收货地址</th>
                                         <th>邮编</th>
-
                                         <th>收货人</th>
                                         <th>手机号码</th>
-                                        <th>用户备注</th>
-
-                                        <th>创建时间</th>
                                         <th>支付时间</th>
                                         <th>发货时间</th>
-                                        <th>收货时间</th>
                                         <th>订单状态</th>
                                         <th>删除订单</th>
+                                        <th>编辑订单</th>
 
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <c:forEach items="${orders}" var="o">
                                         <tr>
-                                            <td>${o.id}</td>
                                             <td>${o.order_code}</td>
                                             <td>${o.address}</td>
                                             <td>${o.post}</td>
-
                                             <td>${o.receiver}</td>
                                             <td>${o.mobile}</td>
-                                            <td>${o.user_message}</td>
-
-                                            <td>${o.create_date}</td>
                                             <td>${o.pay_date}</td>
                                             <td>${o.delivery_date}</td>
-                                            <td>${o.pay_date}</td>
                                             <td>
                                                 <c:if test="${o.status=='waitPay'}">
                                                    待付款
@@ -128,8 +118,6 @@
                                                 <c:if test="${o.status=='delete'}">
                                                     已删除
                                                 </c:if>
-
-
 
                                                     <%--<form action="updateOrder" role="form">--%>
                                                     <%-- 表单隐藏信息 --%>
@@ -167,6 +155,9 @@
                                                     <button class="btn btn-primary btn-xs">删除</button>
                                                 </a>
                                             </td>
+
+                                            <td><a href="editOrder?id=${o.id}"><span class="glyphicon glyphicon-edit"></span></a></td>
+
                                         </tr>
                                     </c:forEach>
                                     </tbody>

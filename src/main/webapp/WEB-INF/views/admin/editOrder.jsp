@@ -39,16 +39,17 @@
             <ul class="nav" id="main-menu">
 
                 <li>
-                    <a href="listCategory"><i class="fa fa-bars"></i> 分类管理</a>
+                    <a class="active-menu" href="listCategory"><i class="fa fa-bars"></i> 分类管理</a>
                 </li>
-                <li>
-                    <a href="listUser"><i class="fa fa-user"></i> 客户管理</a>
-                </li>
+                <%-- <li>
+                     <a href="listUser"><i class="fa fa-user"></i> 客户管理</a>
+                 </li>--%>
                 <li>
                     <a href="listOrder"><i class="fa fa-list-alt"></i> 订单管理</a>
                 </li>
                 <li>
-                    <a class="active-menu" href="listLink"><i class="fa fa-link"></i> 店员管理</a>
+                    <%-- <a href="listLink"><i class="fa fa-link"></i> 推荐链接管理</a>--%>
+                    <a href="listStaff"><i class="fa fa-user"></i> 店员管理</a>
                 </li>
             </ul>
         </div>
@@ -60,42 +61,58 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="page-header">
-                        店员管理
-                        <small></small>
+                        订单详情
+                        <small> 订单号：${order.order_code} -- 收货人：${order.receiver} </small>
                     </h1>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-3">
+                    <a href="javascript:history.back()" class="btn btn-success">返回上一页</a>
+                </div>
+            </div>
+            <br>
+
+            <div class="row">
+                <div class="col-md-6">
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            店员列表
+                            编辑订单信息
                         </div>
                         <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                    <thead>
-                                    <tr>
-                                        <th>编号</th>
-                                        <th>姓名</th>
-                                        <th>电话</th>
-                                        <th>修改</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <c:forEach items="${links}" var="l">
-                                        <tr>
-                                            <td>${l.id}</td>
-                                            <td>${l.text}</td>
-                                            <td>${l.link}</td>
-                                            <td>${l.link}</td>
+                            <div class="row col-lg-12">
+                                <form action="updateOrder" role="form">
+                                    <div class="form-group">
+                                        <input type="hidden" name="id" value="${order.id}">
+                                        <input type="hidden" name="order_code" value="${order.order_code}">
+                                        <label>收货地址</label>
+                                        <input type="text" name="address"class="form-control" value="${order.address}">
+                                        <label>邮编</label>
+                                        <input type="text" name="post"class="form-control" value="${order.post}">
+                                        <label>收货人</label>
+                                        <input type="text" name="receiver" class="form-control" value="${order.receiver}">
+                                        <label>联系方式</label>
+                                        <input type="text" name="mobile"class="form-control" value="${order.mobile}">
+                                        <label>订单备注</label>
+                                        <input type="text" name="user_message"class="form-control" value="${order.user_message}"> <br>
 
-                                        </tr>
-                                    </c:forEach>
-                                    </tbody>
-                                </table>
+                                        <input type="hidden" name="create_date" value="${order.create_date}">
+                                        <input type="hidden" name="pay_date" value="${order.pay_date}">
+                                        <input type="hidden" name="delivery_date" value="${order.delivery_date}">
+                                        <input type="hidden" name="confirm_date" value="${order.confirm_date}">
+                                        <input type="hidden" name="user_id" value="${order.user_id}">
+                                        <input type="hidden" name="status" value="${order.status}">
+
+
+
+
+
+
+                                        <input type="submit" class="btn btn-default pull-right" value="确认修改">
+                                    </div>
+                                </form>
                             </div>
 
                         </div>
@@ -108,6 +125,7 @@
     </div>
     <!-- /. PAGE WRAPPER  -->
 </div>
+<!-- /. WRAPPER  -->
 <!-- /. WRAPPER  -->
 <!-- JS Scripts-->
 <!-- jQuery Js -->
@@ -126,7 +144,5 @@
 </script>
 <!-- Custom Js -->
 <script src="../assets/js/custom-scripts.js"></script>
-
-
 </body>
 </html>
