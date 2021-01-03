@@ -68,4 +68,13 @@ public interface OrderService {
 	 * @return
 	 */
 	float add(Order order, List<OrderItem> orderItems);
+
+
+	/**
+	 * 删除订单 ya
+	 *
+	 * @param id
+	 */
+	void delete(Integer id);
+
 }

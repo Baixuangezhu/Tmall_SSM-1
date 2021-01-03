@@ -79,4 +79,15 @@ public class OrderServiceImpl implements OrderService {
 		}
 		return total;
 	}
+
+
+
+	@Override
+	public void delete(Integer id) {
+		orderMapper.deleteByPrimaryKey(id);
+	}
+
+
+
+
 }

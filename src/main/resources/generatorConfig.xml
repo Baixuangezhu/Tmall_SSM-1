@@ -12,12 +12,7 @@
             <property name="suppressAllComments" value="true"/>
         </commentGenerator>
 
-        <!-- 指定连接数据库所用的驱动
-        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-         指定连接数据库的url，其中hibernate是本应用连接的数据库名
-        <property name="hibernate.connection.url"> jdbc:mysql://localhost:3306/tmall_ssh?useSSL=false&amp;serverTimezone=Asia/Shanghai</property>
-        <property name="hibernate.connection.url"> jdbc:mysql://localhost:3306/tmalldb?useSSL=false&amp;serverTimezone=UTC</property>
--->
+
 
         <!-- 数据库连接信息：驱动类、连接地址、用户名、密码 -->
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/tmall_ssm?useSSL=false&amp;serverTimezone=Asia/Shanghai"
@@ -65,6 +60,21 @@
             enableSelectByExample:Select多条语句中加入where条件查询，默认为true开启
             selectByExampleQueryId:Select单个对象语句中加入where条件查询，默认为true开启
         -->
+
+
+        <table tableName="staff" domainObjectName="Staff" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"
+               selectByExampleQueryId="false">
+            <property name="my.isgen.usekeys" value="true"/>
+            <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+
+
+
+
+
+
         <!--<table tableName="category" domainObjectName="Category" enableCountByExample="false"-->
                <!--enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"-->
                <!--selectByExampleQueryId="false">-->
@@ -83,13 +93,13 @@
             <!--<generatedKey column="id" sqlStatement="JDBC"/>-->
         <!--</table>-->
 
-        <!--<table tableName="product" domainObjectName="Product" enableCountByExample="false" enableUpdateByExample="false"-->
-               <!--enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">-->
-            <!--<property name="my.isgen.usekeys" value="true"/>-->
-            <!--<property name="useActualColumnNames" value="true"/>-->
-            <!--<generatedKey column="id" sqlStatement="JDBC"/>-->
-        <!--</table>-->
-
+       <!-- <table tableName="product" domainObjectName="Product" enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
+            <property name="my.isgen.usekeys" value="true"/>
+            <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+-->
         <!--<table tableName="product_image" domainObjectName="ProductImage" enableCountByExample="false"-->
                <!--enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"-->
                <!--selectByExampleQueryId="false">-->
@@ -127,13 +137,13 @@
             <!--<generatedKey column="id" sqlStatement="JDBC"/>-->
         <!--</table>-->
 
-        <table tableName="order_item" domainObjectName="OrderItem" enableCountByExample="false"
+        <!--<table tableName="order_item" domainObjectName="OrderItem" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"
                selectByExampleQueryId="false">
             <property name="my.isgen.usekeys" value="true"/>
             <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
-        </table>
+        </table>-->
 
         <!--<table tableName="referal_link" domainObjectName="ReferalLink" enableCountByExample="false"-->
                <!--enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"-->
@@ -142,5 +152,10 @@
             <!--<property name="useActualColumnNames" value="true"/>-->
             <!--<generatedKey column="id" sqlStatement="JDBC"/>-->
         <!--</table>-->
+
+
+
+
+
     </context>
 </generatorConfiguration>

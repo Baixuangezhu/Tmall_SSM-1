@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>模仿天猫-后台</title>
+    <title>订单管理系统</title>
     <!-- Bootstrap Styles-->
     <link href="../assets/css/bootstrap.css" rel="stylesheet"/>
     <!-- FontAwesome Styles-->
@@ -29,7 +29,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="listCategory">Tmall</a>
+            <a class="navbar-brand" href="listCategory">订单管理系统</a>
         </div>
     </nav>
 
@@ -78,21 +78,21 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                     <tr>
-                                        <th>订单id</th>
+                                        <th>id</th>
                                         <th>订单号</th>
                                         <th>收货地址</th>
                                         <th>邮编</th>
 
-                                        <th>收货人姓名</th>
+                                        <th>收货人</th>
                                         <th>手机号码</th>
                                         <th>用户备注</th>
 
-                                        <th>订单创建时间</th>
-                                        <th>订单支付时间</th>
-                                        <th>订单发货时间</th>
-                                        <th>确认收货时间</th>
+                                        <th>创建时间</th>
+                                        <th>支付时间</th>
+                                        <th>发货时间</th>
+                                        <th>收货时间</th>
                                         <th>订单状态</th>
-                                        <th>操作</th>
+                                        <th>删除订单</th>
 
                                     </tr>
                                     </thead>
@@ -112,37 +112,60 @@
                                             <td>${o.pay_date}</td>
                                             <td>${o.delivery_date}</td>
                                             <td>${o.pay_date}</td>
-                                            <td>${o.status}</td>
                                             <td>
-                                                <%--<form action="updateOrder" role="form">--%>
+                                                <c:if test="${o.status=='waitPay'}">
+                                                   待付款
+                                                </c:if>
+                                                <c:if test="${o.status=='waitConfirm'}">
+                                                    待确认
+                                                </c:if>
+                                                <c:if test="${o.status=='waitReview'}">
+                                                    待评价
+                                                </c:if>
+                                                <c:if test="${o.status=='finish'}">
+                                                    已完成
+                                                </c:if>
+                                                <c:if test="${o.status=='delete'}">
+                                                    已删除
+                                                </c:if>
+
+
+
+                                                    <%--<form action="updateOrder" role="form">--%>
                                                     <%-- 表单隐藏信息 --%>
-                                                    <input type="hidden" name="id" value="${o.id}">
-                                                    <input type="hidden" name="order_code" value="${o.order_code}">
-                                                    <input type="hidden" name="address" value="${o.address}">
-                                                    <input type="hidden" name="post" value="${o.post}">
+                                                <input type="hidden" name="id" value="${o.id}">
+                                                <input type="hidden" name="order_code" value="${o.order_code}">
+                                                <input type="hidden" name="address" value="${o.address}">
+                                                <input type="hidden" name="post" value="${o.post}">
 
-                                                    <input type="hidden" name="receiver" value="${o.receiver}">
-                                                    <input type="hidden" name="mobile" value="${o.mobile}">
-                                                    <input type="hidden" name="user_message" value="${o.user_message}">
+                                                <input type="hidden" name="receiver" value="${o.receiver}">
+                                                <input type="hidden" name="mobile" value="${o.mobile}">
+                                                <input type="hidden" name="user_message" value="${o.user_message}">
 
-                                                    <input type="hidden" name="create_date" value="${o.create_date}">
-                                                    <input type="hidden" name="pay_date" value="${o.pay_date}">
-                                                    <input type="hidden" name="delivery_date" value="${o.delivery_date}">
-                                                    <input type="hidden" name="pay_date" value="${o.pay_date}">
+                                                <input type="hidden" name="create_date" value="${o.create_date}">
+                                                <input type="hidden" name="pay_date" value="${o.pay_date}">
+                                                <input type="hidden" name="delivery_date" value="${o.delivery_date}">
+                                                <input type="hidden" name="pay_date" value="${o.pay_date}">
 
                                                     <%-- 更改表单状态 --%>
-                                                        <c:if test="${o.status=='waitDelivery'}">
-                                                            <a href="orderDelivery?order_id=${o.id}">
-                                                                <button class="btn btn-primary btn-xs">发货</button>
-                                                            </a>
-                                                        </c:if>
+                                                <c:if test="${o.status=='waitDelivery'}">
+                                                    <a href="orderDelivery?order_id=${o.id}">
+                                                        <button class="btn btn-primary btn-xs">发货</button>
+                                                    </a>
+                                                </c:if>
                                                     <%--<select name="status" class="form-control">--%>
-                                                        <%--<option>待付款</option>--%>
-                                                        <%--<option>已发货</option>--%>
-                                                        <%--<option>订单完成</option>--%>
+                                                    <%--<option>待付款</option>--%>
+                                                    <%--<option>已发货</option>--%>
+                                                    <%--<option>订单完成</option>--%>
                                                     <%--</select>--%>
                                                     <%--<input type="submit" class="form-control" value="提交">--%>
-                                                <%--</form>--%>
+                                                    <%--</form>--%>
+                                            </td>
+
+                                            <td>
+                                                <a href="orderDelete?order_id=${o.id}">
+                                                    <button class="btn btn-primary btn-xs">删除</button>
+                                                </a>
                                             </td>
                                         </tr>
                                     </c:forEach>

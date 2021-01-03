@@ -44,4 +44,13 @@ public class OrderController {
 		orderService.update(order);
 		return "redirect:listOrder";
 	}
+
+	@RequestMapping("orderDelete")
+	public String delete(Integer order_id) {
+		orderService.delete(order_id);
+		return "redirect:listOrder";
+	}
+
+
+
 }
