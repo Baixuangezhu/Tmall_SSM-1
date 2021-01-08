@@ -280,6 +280,7 @@
     });
 
 </script>
+
 <div class="buyPageDiv">
     <form action="createOrder" method="post">
 

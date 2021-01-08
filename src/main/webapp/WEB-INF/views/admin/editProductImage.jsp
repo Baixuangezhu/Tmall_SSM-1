@@ -29,6 +29,16 @@
             </button>
             <a class="navbar-brand" href="listCategory">订单管理系统</a>
         </div>
+
+        <div class="pull-right" width="100px" fontsize="50">
+            </br>
+            <c:if test="${!empty sessionScope.staff}">
+                <span class="myDiv1"><a>Hi，${sessionScope.staff.name}</a></span>
+                <span class="myDiv1"><a href="/admin/Logout">----退出-----</a></span>
+            </c:if>
+        </div>
+
+
     </nav>
 
     <!--/. NAV TOP  -->
@@ -91,8 +101,8 @@
                                 </thead>
                                 <tbody>
                                 <div class="alert alert-info">
-                                    <srong>注意：</srong>
-                                    默认第一张图为产品大图
+                                    <srong>您能够上传五张图片</srong>
+
                                 </div>
                                 <c:forEach items="${productImages}" var="pi">
                                     <tr>
@@ -102,7 +112,7 @@
                                                  src="../img/product/${pi.product_id}/${pi.id%5==0?5:pi.id%5}.jpg"
                                                  onerror="this.src='../img/product/error.png'"></td>
                                         <td class="col-md-5">
-                                            <form action="updateProductImage" method="post"
+                                            <form action="/admin/updateProductImage" method="post"
                                                   enctype="multipart/form-data">
                                                 <input type="hidden" name="id" value="${pi.id}">
                                                 <input type="hidden" name="product_id"
@@ -112,7 +122,7 @@
                                             </form>
                                         </td>
                                         <td>
-                                            <a href="deleteProductImage?product_id=${pi.product_id}&id=${pi.id}"><span
+                                            <a href="/admin/deleteProductImage?product_id=${pi.product_id}&id=${pi.id}"><span
                                                     class="glyphicon glyphicon-trash"></span></a></td>
                                     </tr>
                                 </c:forEach>

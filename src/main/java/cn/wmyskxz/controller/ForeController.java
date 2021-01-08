@@ -17,8 +17,8 @@ import java.util.*;
 /**
  * 前台控制器
  *
- * @author: @我没有三颗心脏
- * @create: 2018-04-29-下午 14:45
+ * @author: @20466
+ * @create: 2020-12-29-下午 14:45
  */
 @Controller
 public class ForeController {
@@ -181,11 +181,12 @@ public class ForeController {
 				orderItem.setNumber(orderItem.getNumber() + number);
 				orderItemService.update(orderItem);
 				orderItemId = orderItem.getId();
+				found =true;//标记找到，不需要新建
 				break;
 			}
 		}
 
-		if (!found) {
+		if (!found) {//如果没有存在这类型商品的订单则新建
 			OrderItem orderItem = new OrderItem();
 			orderItem.setUser_id(user.getId());
 			orderItem.setNumber(number);

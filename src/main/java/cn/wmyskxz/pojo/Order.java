@@ -41,6 +41,7 @@ public class Order {
 
     private User user;
 
+
     private float total;
 
     private int totalNumber;
@@ -164,6 +165,8 @@ public class Order {
     public void setUser(User user) {
         this.user = user;
     }
+
+
 
     public float getTotal() {
         return total;

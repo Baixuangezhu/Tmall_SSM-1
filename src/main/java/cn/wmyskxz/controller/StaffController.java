@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 @Controller
 @RequestMapping("/admin")
@@ -23,10 +24,16 @@ public class StaffController {
     }
 
     @RequestMapping("/editStaff")
-    public String edit(Model model, Integer id) {
-        Staff staff = staffService.get(id);
-        model.addAttribute("staff", staff);
-        return "admin/editStaff";
+    public String edit(Model model, Integer id, HttpSession session) {
+        Staff admin = (Staff)session.getAttribute("staff");
+        if(admin.getId() == 1){//默认id为1的职员为终极管理员
+            Staff staff = staffService.get(id);
+            model.addAttribute("staff", staff);
+            return "admin/editStaff";
+        }
+        else
+            return "admin/error";
+
     }
 
     @RequestMapping("/updateStaff")
@@ -38,16 +45,28 @@ public class StaffController {
 
 
     @RequestMapping("/addStaff")
-    public String add(Staff staff) {
-        staffService.add(staff);
-        return "redirect:listStaff";
+    public String add(Staff staff,HttpSession session) {
+        Staff admin = (Staff)session.getAttribute("staff");
+        if(admin.getId() == 1){
+            staffService.add(staff);
+            return "redirect:listStaff";
+        }
+        else
+            return "admin/error";
     }
 
 
     @RequestMapping("/deleteStaff")
-    public String delete(Integer id) {
-        staffService.delete(id);
-        return "redirect:listStaff";
+    public String delete(Integer id,HttpSession session) {
+        Staff admin = (Staff)session.getAttribute("staff");
+        if(admin.getId() == 1){
+            staffService.delete(id);
+            return "redirect:listStaff";
+        }
+        else
+            return "admin/error";
     }
+
+
 
 }

@@ -153,7 +153,7 @@
 <div class="content">
     <div class="login-banner-wrap" style="width: 100%; background-color: rgb(223, 226, 231);" title="">
         <div class="inner">
-            <img src="/img/fore/loginPage-background.jpg">
+            <img src="/img/fore/0110.jpg">
         </div>
     </div>
 

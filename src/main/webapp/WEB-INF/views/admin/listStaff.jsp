@@ -31,6 +31,15 @@
             </button>
             <a class="navbar-brand" href="listCategory">订单管理系统</a>
         </div>
+
+        <div class="pull-right" width="100px" fontsize="50">
+            </br>
+            <c:if test="${!empty sessionScope.staff}">
+                <span class="myDiv1"><a>Hi，${sessionScope.staff.name}</a></span>
+                <span class="myDiv1"><a href="/admin/Logout">----退出-----</a></span>
+            </c:if>
+        </div>
+
     </nav>
 
     <!--/. NAV TOP  -->

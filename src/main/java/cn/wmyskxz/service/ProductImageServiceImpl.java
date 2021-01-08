@@ -11,8 +11,8 @@ import java.util.List;
 /**
  * ProductImageService 实现类
  *
- * @author: @我没有三颗心脏
- * @create: 2018-04-28-上午 11:04
+ * @author: @20466
+ * @create: 2020-12-28-上午 11:04
  */
 @Service
 public class ProductImageServiceImpl implements ProductImageService {

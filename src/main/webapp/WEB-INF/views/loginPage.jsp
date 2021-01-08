@@ -29,9 +29,12 @@
 </style>
 <div class="mallPage" id="mallPage">
     <div class="header">
-        <a href="/home">
+       <%-- <a href="/home">
             <img src="/img/fore/tmallLogo.png" class="tm-logo">
-        </a>
+        </a>--%>
+            <a href="">
+             订单管理系统
+           </a>
     </div>
 </div>
 
@@ -155,7 +158,8 @@
 <div class="content">
     <div class="login-banner-wrap" style="width: 100%; background-color: rgb(223, 226, 231);" title="">
         <div class="inner">
-            <img src="/img/fore/loginPage-background.jpg">
+          <%--  <img src="/img/fore/loginPage-background.jpg">--%>
+              <img src="/img/fore/0110.jpg">
         </div>
     </div>
 
@@ -174,7 +178,7 @@
                         <span class="loginInputIcon">
 					        <span class=" glyphicon glyphicon-user"></span>
 				        </span>
-                        <input id="name" name="name" placeholder="手机/会员名/邮箱" type="text">
+                        <input id="name" name="name" placeholder="用户名" type="text">
                     </div>
                     <div class="field">
                         <span class="loginInputIcon ">
@@ -183,15 +187,15 @@
                         <input id="password" name="password" type="password" placeholder="密码" type="text">
                     </div>
 
-                    <span class="text-danger">不要输入真实的天猫账号密码</span><br><br>
+
 
                     <div style="margin-top:10px">
                         <button class="redButton" type="submit">登 录</button>
                     </div>
 
                     <div style="margin-top: 20px;">
-                        <a class="notImplementLink" href="#nowhere">忘记登录密码</a>
-                        <a href="registerPage" class="pull-right">免费注册</a>
+                       <%-- <a class="notImplementLink" href="#nowhere">忘记登录密码</a>--%>
+                       <%-- <a href="registerPage" class="pull-right">免费注册</a>--%>
                     </div>
                 </form>
             </div>

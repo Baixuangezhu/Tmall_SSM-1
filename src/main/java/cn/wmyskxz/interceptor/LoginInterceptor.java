@@ -13,8 +13,8 @@ import java.util.Arrays;
 /**
  * 登录拦截器：
  *
- * @author: @我没有三颗心脏
- * @create: 2018-05-02-下午 19:28
+ * @author: @20466
+ * @create: 2020-12-02-下午 19:28
  */
 public class LoginInterceptor extends HandlerInterceptorAdapter {
 

@@ -11,8 +11,8 @@ import java.util.List;
 /**
  * 逆向工程测试类
  *
- * @author: @我没有三颗心脏
- * @create: 2018-04-27-上午 8:26
+ * @author: @20466
+ * @create: 2020-12-27-上午 8:26
  */
 //@RunWith(SpringJUnit4ClassRunner.class)
 //@ContextConfiguration("classpath:spring-mybatis.xml")

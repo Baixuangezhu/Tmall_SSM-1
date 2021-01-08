@@ -19,9 +19,12 @@ import java.util.List;
 /**
  * Product 控制器
  *
- * @author: @我没有三颗心脏
- * @create: 2018-04-27-下午 20:21
+ * @author: @20466
+ * @create: 2020-12-27-下午 20:21
  */
+
+
+
 @Controller
 @RequestMapping("/admin")
 public class ProductController {

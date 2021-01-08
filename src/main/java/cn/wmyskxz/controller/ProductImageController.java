@@ -19,8 +19,8 @@ import java.util.List;
 /**
  * ProductImage 的控制器
  *
- * @author: @我没有三颗心脏
- * @create: 2018-04-28-下午 14:10
+ * @author: @20466
+ * @create: 2020-12-28-下午 14:10
  */
 @Controller
 @RequestMapping("/admin")
@@ -54,7 +54,7 @@ public class ProductImageController {
 		// 因为 id 是自增长键，所以需要 % 5 来作为文件名
 		String fileName = (id % 5 == 0 ? 5 : id % 5) + ".jpg";
 		File uploadPicture = new File(filePath, fileName);
-		if (!uploadPicture.exists()) {
+		if (!uploadPicture.exists()) {//如果图片文件不存在
 			uploadPicture.mkdirs();
 		}
 		// 保存
@@ -71,7 +71,8 @@ public class ProductImageController {
 		// 不删除表中的数据（在 ProductController 中统一删除），删除对应文件
 		String filePath = request.getSession().getServletContext()
 				.getRealPath("img/product/" + product_id);
-		String fileName = id + ".jpg";
+		//String fileName = id + ".jpg";
+		String fileName = (id % 5 == 0 ? 5 : id % 5) + ".jpg";
 		new File(filePath, fileName).delete();
 
 		return "redirect:editProductImage?product_id=" + product_id;
