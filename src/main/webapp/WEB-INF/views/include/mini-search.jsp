@@ -20,7 +20,7 @@
     }
 
     .searchFrom {
-        background-color: #FF0036;
+        background-color: #37ff53;
         width: 460px;
         padding: 1px;
         height: 40px;
@@ -41,7 +41,7 @@
     button.searchButton {
         width: 80px;
         border: 1px solid transparent;
-        background-color: #FF0036;
+        background-color: #1eff1a;
         color: white;
         height: 34px;
         font-size: 16px;
@@ -96,32 +96,11 @@
     }
 </style>
 
-<!-- 搜索栏 -->
 <div class="workArea">
     <div class="headerCon">
-        <div class="logo">
-            <a href="/home">
-                <img src="img/fore/tmallLogo.png" id="logo">
-            </a>
-        </div>
-        <div class="fullSearchDiv">
-            <form class="searchFrom" action="searchProduct">
-                <input type="text" value="${param.keyword}" placeholder="搜索 天猫 商品/品牌/店铺" name="keyword">
-                <button class="searchButton" type="submit">搜天猫</button>
-            </form>
-            <div>
-                <button class="shopButton" type="button">搜本店</button>
-            </div>
-            <div class="searchBelow">
-				<span> <a href="#nowhere"> 手机 </a> <span>|</span>
-				</span> <span> <a href="#nowhere"> 小米mix2s </a> <span>|</span>
-				</span> <span> <a href="#nowhere"> 小米 </a> <span>|</span>
-				</span> <span> <a href="#nowhere"> mix2s </a></span><span>|</span>
-                </span> <span> <a href="#nowhere"> 小米6 </a></span><span>|</span>
-                </span> <span> <a href="#nowhere"> 高通骁龙手机 </a></span><span>|</span>
-                </span> <span> <a href="#nowhere"> 小米手机 </a></span>
-            </div>
-        </div>
+        <a href="/home">
+            <img src="img/fore/slogo.png" id="logo">
+        </a>
+        <div class="fullSearchDiv"></div>
     </div>
 </div>
-<div style="clear: both;"></div>

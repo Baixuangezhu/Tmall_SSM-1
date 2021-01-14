@@ -24,16 +24,10 @@ public class StaffController {
     }
 
     @RequestMapping("/editStaff")
-    public String edit(Model model, Integer id, HttpSession session) {
-        Staff admin = (Staff)session.getAttribute("staff");
-        if(admin.getId() == 1){//默认id为1的职员为终极管理员
-            Staff staff = staffService.get(id);
-            model.addAttribute("staff", staff);
-            return "admin/editStaff";
-        }
-        else
-            return "admin/error";
-
+    public String edit(Model model, Integer id) {
+        Staff staff = staffService.get(id);
+        model.addAttribute("staff", staff);
+        return "admin/editStaff";
     }
 
     @RequestMapping("/updateStaff")

@@ -96,7 +96,7 @@
     }
 
     div.reviewStasticsLeftTop {
-        background-color: #FF0036;
+        background-color: #15ff16;
         height: 6px;
     }
 
@@ -182,7 +182,7 @@
         width: 72px;
         height: 26px;
         border-radius: 2px;
-        background-color: #FF0036;
+        background-color: #11ff5c;
         color: white;
         border-width: 0px;
         font-weight: bold;
@@ -233,11 +233,7 @@
                     <td><span class="reviewProductInfoTablePrice">￥${product.price}</span> 元</td>
                 </tr>
                 <tr>
-                    <td>配送</td>
-                    <td>快递: 0.00</td>
-                </tr>
-                <tr>
-                    <td>月销量:</td>
+                    <td>销量</td>
                     <td><span class="reviewProductInfoTableSellNumber">${product.sale}</span> 件</td>
                 </tr>
             </table>
@@ -245,7 +241,7 @@
             <div class="reviewProductInfoRightBelowDiv">
                 <span class="reviewProductInfoRightBelowImg"><img src="img/fore/reviewLight.png"></span>
                 <span class="reviewProductInfoRightBelowText"
-                      style="margin-top: 2px;">现在查看的是 您所购买商品的信息于${order.create_date}下单购买了此商品 </span>
+                      style="margin-top: 2px;">现在查看的是您所购买商品的信息，你在${order.create_date}购买此商品 </span>
             </div>
         </div>
         <div style="clear:both"></div>
@@ -253,8 +249,7 @@
     <div class="reviewStasticsDiv">
         <div class="reviewStasticsLeft">
             <div class="reviewStasticsLeftTop"></div>
-            <div class="reviewStasticsLeftContent">累计评价 <span
-                    class="reviewStasticsNumber"> ${product.reviewCount}</span></div>
+            <div class="reviewStasticsLeftContent">评价</div>
             <div class="reviewStasticsLeftFoot"></div>
         </div>
         <div class="reviewStasticsRight">
@@ -263,6 +258,7 @@
         </div>
     </div>
 
+    <%--只展示评价--%>
     <c:if test="${param.showonly==true}">
         <div class="reviewDivlistReviews">
             <c:forEach items="${reviews}" var="r">
@@ -276,10 +272,11 @@
         </div>
     </c:if>
 
+   <%-- 评价--%>
     <c:if test="${param.showonly!=true}">
         <div class="makeReviewDiv">
             <form method="post" action="doreview">
-                <div class="makeReviewText">其他买家，需要你的建议哦！</div>
+                <div class="makeReviewText">请输入您的评价</div>
                 <table class="makeReviewTable">
                     <tr>
                         <td class="makeReviewTableFirstTD">评价商品</td>
@@ -296,4 +293,3 @@
     </c:if>
 </div>
 
-<%@include file="include/footer.jsp"%>

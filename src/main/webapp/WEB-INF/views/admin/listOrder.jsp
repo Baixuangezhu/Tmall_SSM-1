@@ -34,10 +34,7 @@
 
         <div class="pull-right" width="100px" fontsize="50">
             </br>
-            <c:if test="${!empty sessionScope.staff}">
-                <span class="myDiv1"><a>Hi，${sessionScope.staff.name}</a></span>
-                <span class="myDiv1"><a href="/admin/Logout">----退出-----</a></span>
-            </c:if>
+
         </div>
 
 
@@ -51,21 +48,21 @@
                 <li>
                     <a href="listCategory"><i class="fa fa-bars"></i> 分类管理</a>
                 </li>
-                <%--<li>
-                    <a href="listUser"><i class="fa fa-user"></i> 客户管理</a>
-                </li>--%>
+                <li>
+                    <a href="listUser"><i class="fa fa-user"></i> 用户管理</a>
+                </li>
+
                 <li>
                     <a class="active-menu" href="listOrder"><i class="fa fa-list-alt"></i> 订单管理</a>
                 </li>
-                <li>
-                    <%-- <a href="listLink"><i class="fa fa-link"></i> 推荐链接管理</a>--%>
+               <%-- <li>
                     <a href="listStaff"><i class="fa fa-user"></i> 店员管理</a>
-                </li>
+                </li>--%>
             </ul>
         </div>
 
     </nav>
-    <!-- /. NAV SIDE  -->
+
     <div id="page-wrapper">
         <div id="page-inner">
             <div class="row">
@@ -79,7 +76,7 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <!-- Advanced Tables -->
+
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             订单管理表
@@ -97,7 +94,6 @@
                                         <th>支付时间</th>
                                         <th>发货时间</th>
                                         <th>订单状态</th>
-                                        <th>删除订单</th>
                                         <th>编辑订单</th>
 
                                     </tr>
@@ -151,23 +147,11 @@
                                                         <button class="btn btn-primary btn-xs">发货</button>
                                                     </a>
                                                 </c:if>
-                                                    <%--<select name="status" class="form-control">--%>
-                                                    <%--<option>待付款</option>--%>
-                                                    <%--<option>已发货</option>--%>
-                                                    <%--<option>订单完成</option>--%>
-                                                    <%--</select>--%>
-                                                    <%--<input type="submit" class="form-control" value="提交">--%>
-                                                    <%--</form>--%>
                                             </td>
 
                                             <td>
-                                                <a href="orderDelete?order_id=${o.id}">
-                                                    <button class="btn btn-primary btn-xs">删除</button>
-                                                </a>
+                                                <a href="editOrder?id=${o.id}"><span class="glyphicon glyphicon-edit"></span></a>
                                             </td>
-
-                                            <td><a href="editOrder?id=${o.id}"><span class="glyphicon glyphicon-edit"></span></a></td>
-
                                         </tr>
                                     </c:forEach>
                                     </tbody>

@@ -70,8 +70,8 @@ public class OrderItemServiceImpl implements OrderItemService {
 		return result;
 	}
 
-	public void setProduct(List<OrderItem> ois) {
-		for (OrderItem oi : ois) {
+	public void setProduct(List<OrderItem> orderItems) {
+		for (OrderItem oi : orderItems) {
 			setProduct(oi);
 		}
 	}
@@ -97,9 +97,9 @@ public class OrderItemServiceImpl implements OrderItemService {
 	public void fill(Order order) {
 		OrderItemExample example = new OrderItemExample();
 		example.or().andOrder_idEqualTo(order.getId());
-		example.setOrderByClause("id desc");
+		example.setOrderByClause("id desc");//按orderItem逆序，则最新的订单项为第一个
 		List<OrderItem> orderItems = orderItemMapper.selectByExample(example);
-		setProduct(orderItems);
+		setProduct(orderItems);//把每个产品找出来
 
 		float total = 0;
 		int totalNumber = 0;

@@ -51,7 +51,7 @@
                         <td><input name="user_message" placeholder="请输入11位手机号码" type="text">尽快发货</td>
                     </tr>
 
-                    <tr>
+                    <tr>s
                         <td class="firstColumn">商品id<span class="redStar">*</span></td>
                         <td><textarea name="product_id" placeholder="详细收货地址"></textarea></td>
                     </tr>

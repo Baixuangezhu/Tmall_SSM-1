@@ -36,11 +36,11 @@ public class Order {
 
     private String status;
 
-    /*如下是非数据库字段*/
+    /*如下是非数据库字段 */
+    //这个订单 的订单项
     private List<OrderItem> orderItems;
 
     private User user;
-
 
     private float total;
 

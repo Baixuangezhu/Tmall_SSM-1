@@ -47,15 +47,6 @@
         text-align: center;
     }
 </style>
-<%--<div class="page">--%>
-    <%--<div class="content">--%>
-        <%--<div class="form-list form-main-list">--%>
-            <%--<div class="form-group">--%>
-
-            <%--</div>--%>
-        <%--</div>--%>
-    <%--</div>--%>
-<%--</div>--%>
 <div style="margin-top: 90px;height: 0;"></div>
 <div class="registerSuccessMessage">
     <div class="alert alert-success">
@@ -63,4 +54,4 @@
         恭喜注册成功
     </div>
 </div>
-<%@include file="include/footer.jsp" %>
+

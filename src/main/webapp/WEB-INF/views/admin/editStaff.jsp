@@ -11,7 +11,6 @@
     <!-- FontAwesome Styles-->
     <link href="../assets/css/font-awesome.css" rel="stylesheet"/>
     <!-- Morris Chart Styles-->
-
     <!-- Custom Styles-->
     <link href="../assets/css/custom-styles.css" rel="stylesheet"/>
     <!-- Google Fonts-->
@@ -30,18 +29,15 @@
             <a class="navbar-brand" href="listCategory">订单管理系统</a>
         </div>
 
-        <div class="pull-right" width="100px" fontsize="50">
+        <%--<div class="pull-right" width="100px" fontsize="50">
             </br>
             <c:if test="${!empty sessionScope.staff}">
                 <span class="myDiv1"><a>Hi，${sessionScope.staff.name}</a></span>
                 <span class="myDiv1"><a href="/admin/Logout">----退出-----</a></span>
             </c:if>
-        </div>
-
+        </div>--%>
 
     </nav>
-
-    <!--/. NAV TOP  -->
     <nav class="navbar-default navbar-side" role="navigation">
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
@@ -49,21 +45,16 @@
                 <li>
                     <a  href="listCategory"><i class="fa fa-bars"></i> 分类管理</a>
                 </li>
-                <%--<li>
-                    <a class="active-menu" href="listUser"><i class="fa fa-user"></i> 客户管理</a>
-                </li>--%>
+
                 <li>
                     <a href="listOrder"><i class="fa fa-list-alt"></i> 订单管理</a>
                 </li>
                 <li>
-                    <%-- <a href="listLink"><i class="fa fa-link"></i> 推荐链接管理</a>--%>
                     <a href="listStaff"><i class="fa fa-user"></i> 店员管理</a>
                 </li>
             </ul>
         </div>
-
     </nav>
-    <!-- /. NAV SIDE  -->
     <div id="page-wrapper">
         <div id="page-inner">
             <div class="row">
@@ -81,10 +72,8 @@
                 </div>
             </div>
             <br>
-
             <div class="row">
                 <div class="col-md-6">
-                    <!-- Advanced Tables -->
                     <div class="panel panel-success">
                         <div class="panel-heading">
                             修改信息
@@ -97,25 +86,16 @@
                                 <input class="form-control" type="text" name="password" value="${staff.password}"><br>
                                 <label>联系方式：</label>
                                 <input class="form-control" type="text" name="phone" value="${staff.phone}"><br>
-
                                 <input type="submit" class="btn btn-success pull-right" value="确认修改">
                             </form>
-
                         </div>
                     </div>
-                    <!--End Advanced Tables -->
                 </div>
             </div>
-
         </div>
     </div>
-    <!-- /. PAGE WRAPPER  -->
 </div>
-<!-- /. WRAPPER  -->
-<!-- JS Scripts-->
-<!-- jQuery Js -->
 <script src="../assets/js/jquery-1.10.2.js"></script>
-<!-- Bootstrap Js -->
 <script src="../assets/js/bootstrap.min.js"></script>
 </body>
 </html>

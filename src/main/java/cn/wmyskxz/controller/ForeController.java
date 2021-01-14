@@ -79,47 +79,31 @@ public class ForeController {
 		return "product";
 	}
 
-	@RequestMapping("/searchProduct")
+	/*@RequestMapping("/searchProduct")
 	public String searchProduct(Model model, String keyword) {
-
 		PageHelper.offsetPage(0, 20);
 		List<Product> products = productService.search(keyword);
+
 		for (Product product : products) {
 			product.setReviewCount(reviewService.getCount(product.getId()));
 		}
 		model.addAttribute("products", products);
 		return "searchResult";
-	}
+	}*/
 
-	@RequestMapping("sortProduct")
-	public String sortProduct(Model model, String sort, String keyword) {
-		List<Product> products = productService.search(keyword);
-		for (Product product : products) {
-			product.setReviewCount(reviewService.getCount(product.getId()));
-		}
-		if (null != sort) {
-			switch (sort) {
-				case "all":
-					Collections.sort(products, Comparator.comparing(Product::getSaleXReviewCount));
-					break;
-				case "reviewCount":
-					Collections.sort(products, Comparator.comparing(Product::getReviewCount));
-					break;
-				case "date":
-//					Collections.sort(products, comparing(Product::get));
-					break;
-				case "sale":
-					Collections.sort(products, Comparator.comparing(Product::getSale));
-					break;
-				case "price":
-					Collections.sort(products, Comparator.comparing(Product::getPrice));
-					break;
-			}
-		}
+
+	@RequestMapping("/searchProduct")
+	public String searchProduct(Model model, Integer categoryId) {
+		List<Product> products = productService.list(categoryId);
 		model.addAttribute("products", products);
-
 		return "searchResult";
 	}
+
+
+
+
+
+
 
 	@RequestMapping("/login")
 	public String login(Model model,
@@ -159,7 +143,7 @@ public class ForeController {
 
 	/**
 	 * 立即购买（即新增OrderItem项）需要考虑以下两种情况：
-	 * 1.如果这个产品已经存在于购物车中，那么只需要相应的调整数量就可以了
+	 * 1.只需要相应的调整数量
 	 * 2.如果不存在对应的OrderItem项，那么就新增一个订单项（OrderItem）
 	 * - 前提条件：已经登录
 	 *
@@ -239,7 +223,7 @@ public class ForeController {
 	}
 
 	/**
-	 * 加入购物车方法，跟buyone()方法有些类似，但返回不同
+	 * 跟buyone()方法有些类似，但返回不同
 	 * 仍然需要新增订单项OrderItem，考虑两个情况：
 	 * 1.如果这个产品已经存在于购物车中，那么只需要相应的调整数量就可以了
 	 * 2.如果不存在对应的OrderItem项，那么就新增一个订单项（OrderItem）
@@ -280,7 +264,7 @@ public class ForeController {
 	}
 
 	/**
-	 * 查看购物车方法：
+	 *
 	 * 1.首先通过session获取到当前的用户
 	 * 2.获取这个用户关联的订单项的集合
 	 *
@@ -337,9 +321,8 @@ public class ForeController {
 	public String bought(Model model, HttpSession session) {
 		User user = (User) session.getAttribute("user");
 		List<Order> orders = orderService.list(user.getId(), OrderService.delete);
-		orderItemService.fill(orders);
+		orderItemService.fill(orders);//为Order填充订单项
 		model.addAttribute("orders", orders);
-
 		return "bought";
 	}
 
@@ -360,19 +343,30 @@ public class ForeController {
 		return "orderConfirmedPage";
 	}
 
+	/**
+	 * 将订单状态改为已删除，并不删除数据库记录
+	 * @param model
+	 * @param order_id
+	 * @return
+	 */
 	@RequestMapping("deleteOrder")
-	@ResponseBody
-	public String deleteOrder(Model model, Integer order_id) {
+	public String deleteOrder(Model model, Integer order_id,HttpSession session) {
 		Order o = orderService.get(order_id);
 		o.setStatus(OrderService.delete);
 		orderService.update(o);
-		return "success";
+
+		User user = (User) session.getAttribute("user");
+		List<Order> orders = orderService.list(user.getId(), OrderService.delete);
+		orderItemService.fill(orders);//为Order填充订单项
+		model.addAttribute("orders", orders);
+		return "bought";
 	}
 
 	@RequestMapping("review")
 	public String review(Model model, Integer order_id) {
 		Order order = orderService.get(order_id);
 		orderItemService.fill(order);
+		//第一个产品为最新购买的所以这里为   0
 		Product product = order.getOrderItems().get(0).getProduct();
 		List<Review> reviews = reviewService.listByProductId(product.getId());
 		productService.setReviewCount(product);
@@ -399,8 +393,42 @@ public class ForeController {
 		review.setCreateDate(new Date());
 		review.setUser_id(user.getId());
 		reviewService.add(review);
-
+		//加入新的评价后，把评价页面参数设置为 showonly 只展示
 		return "redirect:review?order_id=" + order_id + "&showonly=true";
 	}
+
+
+
+
+
+	@RequestMapping("sortProduct")
+	public String sortProduct(Model model, String sort, String keyword) {
+		List<Product> products = productService.search(keyword);
+		for (Product product : products) {
+			product.setReviewCount(reviewService.getCount(product.getId()));
+		}
+		if (null != sort) {
+			switch (sort) {
+				case "all":
+					Collections.sort(products, Comparator.comparing(Product::getSaleXReviewCount));
+					break;
+				case "reviewCount":
+					Collections.sort(products, Comparator.comparing(Product::getReviewCount));
+					break;
+				case "date":
+					break;
+				case "sale":
+					Collections.sort(products, Comparator.comparing(Product::getSale));
+					break;
+				case "price":
+					Collections.sort(products, Comparator.comparing(Product::getPrice));
+					break;
+			}
+		}
+		model.addAttribute("products", products);
+
+		return "searchResult";
+	}
+
 
 }

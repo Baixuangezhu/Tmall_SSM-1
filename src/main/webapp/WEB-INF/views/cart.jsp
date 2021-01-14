@@ -391,7 +391,7 @@
 <title>购物车</title>
 <div class="cartDiv">
     <div class="cartTitle pull-right">
-        <span>已选商品  (不含运费)</span>
+        <span>已选商品  </span>
         <span class="cartTitlePrice">￥0.00</span>
         <button class="createOrderButton" disabled="disabled">结 算</button>
     </div>
@@ -413,54 +413,49 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${orderItems}" var="oi">
-                <tr orderItemId="${oi.id}" class="cartProductItemTR">
+            <c:forEach items="${orderItems}" var="orderItem">
+                <tr orderItemId="${orderItem.id}" class="cartProductItemTR">
                     <td>
-                        <img selectit="false" orderItemId="${oi.id}" class="cartProductItemIfSelected"
+                        <img selectit="false" orderItemId="${orderItem.id}" class="cartProductItemIfSelected"
                              src="img/fore/cartNotSelected.png">
                         <a style="display:none" href="#nowhere"><img src="img/fore/cartSelected.png"></a>
                         <img class="cartProductImg"
-                             src="img/product/${oi.product.id}/1.jpg">
+                             src="img/product/${orderItem.product.id}/1.jpg">
                     </td>
                     <td>
                         <div class="cartProductLinkOutDiv">
-                            <a href="/showProduct?product_id=${oi.product.id}"
-                               class="cartProductLink">${oi.product.name}</a>
-                            <div class="cartProductLinkInnerDiv">
-                                <img src="img/fore/creditcard.png" title="支持信用卡支付">
-                                <img src="img/fore/7day.png" title="消费者保障服务,承诺7天退货">
-                                <img src="img/fore/promise.png" title="消费者保障服务,承诺如实描述">
-                            </div>
+                            <a href="/showProduct?product_id=${orderItem.product.id}"
+                               class="cartProductLink">${orderItem.product.name}</a>
                         </div>
 
                     </td>
                     <td>
-                        <span class="cartProductItemOringalPrice">￥${oi.product.price}</span>
-                        <span class="cartProductItemPromotionPrice">￥${oi.product.price}</span>
+                        <span class="cartProductItemOringalPrice">￥${orderItem.product.price}</span>
+                        <span class="cartProductItemPromotionPrice">￥${orderItem.product.price}</span>
 
                     </td>
                     <td>
 
                         <div class="cartProductChangeNumberDiv">
-                            <span class="hidden orderItemStock " product_id="${oi.product.id}">${oi.product.stock}</span>
+                            <span class="hidden orderItemStock " product_id="${orderItem.product.id}">${orderItem.product.stock}</span>
                             <span class="hidden orderItemPromotePrice "
-                                  product_id="${oi.product.id}">${oi.product.price}</span>
-                            <a product_id="${oi.product.id}" class="numberMinus" href="#nowhere">-</a>
-                            <input product_id="${oi.product.id}" orderItemId="${oi.id}" class="orderItemNumberSetting"
-                                   autocomplete="off" value="${oi.number}">
-                            <a stock="${oi.product.stock}" product_id="${oi.product.id}" class="numberPlus"
+                                  product_id="${orderItem.product.id}">${orderItem.product.price}</span>
+                            <a product_id="${orderItem.product.id}" class="numberMinus" href="#nowhere">-</a>
+                            <input product_id="${orderItem.product.id}" orderItemId="${orderItem.id}" class="orderItemNumberSetting"
+                                   autocomplete="off" value="${orderItem.number}">
+                            <a stock="${orderItem.product.stock}" product_id="${orderItem.product.id}" class="numberPlus"
                                href="#nowhere">+</a>
                         </div>
 
                     </td>
                     <td>
-                            <span class="cartProductItemSmallSumPrice" orderItemId="${oi.id}" product_id="${oi.product.id}">
-                                    ${oi.product.price*oi.number}
+                            <span class="cartProductItemSmallSumPrice" orderItemId="${orderItem.id}" product_id="${orderItem.product.id}">
+                                    ${orderItem.product.price*orderItem.number}
                             </span>
 
                     </td>
                     <td>
-                        <a class="deleteOrderItem" orderItemId="${oi.id}" href="#nowhere">删除</a>
+                        <a class="deleteOrderItem" orderItemId="${orderItem.id}" href="#nowhere">删除</a>
                     </td>
                 </tr>
             </c:forEach>
@@ -472,12 +467,10 @@
     <div class="cartFoot">
         <img selectit="false" class="selectAllItem" src="img/fore/cartNotSelected.png">
         <span>全选</span>
-        <!--         <a href="#">删除</a> -->
-
         <div class="pull-right">
             <span>已选商品 <span class="cartSumNumber">0</span> 件</span>
 
-            <span>合计 (不含运费): </span>
+            <span>合计 </span>
             <span class="cartSumPrice">￥0.00</span>
             <button class="createOrderButton" disabled="disabled">结 算</button>
         </div>
@@ -487,7 +480,7 @@
 </div>
 
 
-<%@include file="include/footer.jsp" %>
+
 
 
 

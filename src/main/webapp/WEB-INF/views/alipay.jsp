@@ -41,25 +41,25 @@
     }
 </style>
 <div class="aliPayPageDiv">
-    <div class="aliPayPageLogo">
-        <img class="pull-left" src="img/fore/simpleLogo.png">
-        <div style="clear:both"></div>
+    <div class="headerCon">
+        <a href="/home">
+            <img src="img/fore/slogo.png" id="logo">
+        </a>
     </div>
 
     <div>
-        <span class="confirmMoneyText">扫一扫付款（元）</span>
+        <span class="confirmMoneyText">金额</span>
         <span class="confirmMoney">
 		￥${param.total}</span>
 
     </div>
     <div>
-        <img class="aliPayImg" src="img/fore/alipay2wei.jpg">
+        <img class="aliPayImg" src="img/fore/payImg.png">
     </div>
-
 
     <div>
         <a href="payed?order_id=${param.order_id}&total=${param.total}">
-            <button class="confirmPay">确认支付</button>
+            <button class="confirmPay">确认</button>
         </a>
     </div>
 

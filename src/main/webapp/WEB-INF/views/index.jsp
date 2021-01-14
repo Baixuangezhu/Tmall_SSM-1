@@ -148,11 +148,14 @@
     }
 </style>
 
-<%-- 轮播 --%>
+
+
+<%--
+&lt;%&ndash; 轮播 &ndash;%&gt;
 <div class="category-con">
     <div class="workArea">
 
-        <%-- 分类栏 --%>
+        &lt;%&ndash; 分类栏 &ndash;%&gt;
         <div class="category-tab-content">
             <ul class="normal-nav">
                 <c:forEach items="${categories}" var="c">
@@ -161,28 +164,6 @@
             </ul>
             <%@include file="include/hot-word-con.jsp" %>
 
-            <%--<c:forEach items="${categories}" var="c">--%>
-            <%--<div class="hot-word-con" category_id="${c.id}">--%>
-            <%--<c:forEach items="${c.productByRow}" var="ps">--%>
-            <%--<div class="hot-word-line">--%>
-            <%--<c:forEach items="${ps}" var="p">--%>
-            <%--<div class="line-title">--%>
-            <%--<c:if test="${!empty p.name}">--%>
-            <%--<a href="showProduct?product_id=${p.id}">--%>
-            <%--<c:forEach items="${fn:split(p.name, ' ')}" var="title" varStatus="st">--%>
-            <%--<c:if test="${st.index==0}">--%>
-            <%--${title}--%>
-            <%--</c:if>--%>
-            <%--</c:forEach>--%>
-            <%--</a>--%>
-            <%--</c:if>--%>
-            <%--</div>--%>
-            <%--</c:forEach>--%>
-            <%--<div class="seprate"></div>--%>
-            <%--</div>--%>
-            <%--</c:forEach>--%>
-            <%--</div>--%>
-            <%--</c:forEach>--%>
         </div>
 
         <script type="text/javascript">
@@ -241,23 +222,25 @@
             </div>
         </div>
     </div>
-</div>
+</div>--%>
+
+
 <div style="clear: both;"></div>
+
 
 <div class="new-floor-con">
     <div class="workArea">
         <c:forEach items="${categories}" var="c" varStatus="sts">
-
             <%-- 该分类下有产品才能显示 --%>
             <c:if test="${!empty c.products}">
                 <%-- 默认只展示前五个分类的内容，多了页面太长 --%>
-                <c:if test="${sts.count<=5}">
+               <%-- <c:if test="${sts.count<=5}">--%>
                     <div class="floor-line-con">
                         <i class="color-mark"></i>
                         <div class="floor-name">${c.name}</div>
                         <br>
-                        <c:forEach items="${c.products}" var="p" varStatus="st">
-                            <c:if test="${st.count<=5}">
+                        <c:forEach items="${c.products}" var="p" varStatus="status">
+                            <c:if test="${status.count<=5}">
                                 <a class="grid" href="showProduct?product_id=${p.id}">
                                     <div class="productItem">
                                         <img class="floor-item-img" src="img/product/${p.id}/1.jpg">
@@ -267,10 +250,9 @@
                                 </a>
                             </c:if>
                         </c:forEach>
-
                     </div>
                     <div style="clear: both;"></div>
-                </c:if>
+               <%-- </c:if>--%>
             </c:if>
         </c:forEach>
         <div class="tm-end">
@@ -281,4 +263,3 @@
 <div style="clear: both;"></div>
 
 
-<%@include file="include/footer.jsp" %>

@@ -3,7 +3,6 @@
 
 <%@include file="include/header.jsp" %>
 <%@include file="include/top.jsp" %>
-<%@include file="include/mini-search.jsp" %>
 
 <style>
     div.payedDiv{
@@ -73,24 +72,16 @@
             <li>实付款：<span class="payedInfoPrice">
             ￥${param.total}
             </li>
-            <li>预计02月31日送达    </li>
         </ul>
 
         <div class="paedCheckLinkDiv">
             您可以
-            <a class="payedCheckLink" href="bought">查看已买到的宝贝</a>
-            <a class="payedCheckLink" href="bought">查看交易详情 </a>
+            <a class="payedCheckLink" href="bought">查看订单</a>
         </div>
 
     </div>
 
     <div class="payedSeperateLine">
     </div>
-
-    <div class="warningDiv">
-        <img src="img/fore/warning.png">
-        <b>安全提醒：</b>下单后，<span class="redColor boldWord">用QQ给您发送链接办理退款的都是骗子！</span>天猫不存在系统升级，订单异常等问题，谨防假冒客服电话诈骗！
-    </div>
-
 </div>
 

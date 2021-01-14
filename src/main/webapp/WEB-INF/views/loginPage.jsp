@@ -16,22 +16,9 @@
         text-decoration: none;
     }
 
-    .header .tm-logo {
-        margin-top: 8px;
-        width: 190px;
-    }
-
-    #mallPage, #mallPage.mallChn {
-        width: auto;
-        min-width: 990px;
-        background-color: transparent;
-    }
 </style>
 <div class="mallPage" id="mallPage">
     <div class="header">
-       <%-- <a href="/home">
-            <img src="/img/fore/tmallLogo.png" class="tm-logo">
-        </a>--%>
             <a href="">
              订单管理系统
            </a>
@@ -158,7 +145,6 @@
 <div class="content">
     <div class="login-banner-wrap" style="width: 100%; background-color: rgb(223, 226, 231);" title="">
         <div class="inner">
-          <%--  <img src="/img/fore/loginPage-background.jpg">--%>
               <img src="/img/fore/0110.jpg">
         </div>
     </div>

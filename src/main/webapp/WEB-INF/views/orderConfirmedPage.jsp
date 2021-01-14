@@ -24,8 +24,7 @@
 <div class="orderFinishDiv">
     <div class="orderFinishTextDiv">
         <img src="img/fore/orderFinish.png">
-        <span>交易已经成功，卖家将收到您的货款。</span>
+        <span>您已确认收货</span>
     </div>
 </div>
 
-<%@include file="include/footer.jsp" %>

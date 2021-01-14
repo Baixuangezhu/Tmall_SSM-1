@@ -52,15 +52,14 @@
                     <a href="listCategory"><i class="fa fa-bars"></i> 分类管理</a>
                 </li>
                 <li>
-                    <a class="active-menu" href="listUser"><i class="fa fa-user"></i> 客户管理</a>
+                    <a class="active-menu" href="listUser"><i class="fa fa-user"></i> 用户管理</a>
                 </li>
                 <li>
                     <a href="listOrder"><i class="fa fa-list-alt"></i> 订单管理</a>
                 </li>
-                <li>
-                   <%-- <a href="listLink"><i class="fa fa-link"></i> 店员管理</a>--%>
+                <%--<li>
                     <a href="listStaff"><i class="fa fa-user"></i> 店员管理</a>
-                </li>
+                </li>--%>
             </ul>
         </div>
 
@@ -71,7 +70,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="page-header">
-                        客户管理
+                        用户管理
                         <small></small>
                     </h1>
                 </div>

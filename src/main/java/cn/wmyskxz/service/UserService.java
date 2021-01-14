@@ -19,7 +19,7 @@ public interface UserService {
 	 * @param id
 	 * @param password
 	 */
-	void updatePassword(int id, String password);
+	void updateData(int id, String password,String name);
 
 	/**
 	 * 根据id获取用户

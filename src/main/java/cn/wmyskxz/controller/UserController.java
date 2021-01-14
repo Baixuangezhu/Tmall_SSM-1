@@ -37,8 +37,9 @@ public class UserController {
 	}
 
 	@RequestMapping("/updateUser")
-	public String update(Integer id, String password) {
-		userService.updatePassword(id, password);
+	public String update(Integer id, String password,String name) {
+		userService.updateData(id, password,name);
+
 		return "redirect:listUser";
 	}
 }

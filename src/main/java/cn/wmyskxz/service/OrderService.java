@@ -31,7 +31,7 @@ public interface OrderService {
 
 	/**
 	 * 按照用户、订单状态来查询
-	 *
+	 *除了状态为 excludedStatus的
 	 * @param user_id
 	 * @param excludedStatus
 	 * @return

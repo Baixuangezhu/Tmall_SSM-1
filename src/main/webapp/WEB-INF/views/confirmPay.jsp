@@ -132,7 +132,6 @@
         display: inline-block;
         width: 67px;
         height: 22px;
-        background-image: url(img/fore/wangwang.gif);
         background-repeat: no-repeat;
         background-color: transparent;
         position: relative;
@@ -168,48 +167,33 @@
 </style>
 
 <div class="confirmPayPageDiv">
-    <div class="confirmPayImageDiv">
-        <img src="img/fore/comformPayFlow.png">
-        <div class="confirmPayTime1">
-            ${order.create_date}
-        </div>
-        <div class="confirmPayTime2">
-            ${order.pay_date}
-        </div>
-        <div class="confirmPayTime3">
-            yyyy-MM-dd HH:mm:ss
-        </div>
-
-    </div>
     <div class="confirmPayOrderInfoDiv">
-        <div class="confirmPayOrderInfoText">我已收到货，同意支付宝付款</div>
+        <div class="confirmPayOrderInfoText">我已收到货</div>
     </div>
     <div class="confirmPayOrderItemDiv">
         <div class="confirmPayOrderItemText">订单信息</div>
         <table class="confirmPayOrderItemTable">
             <thead>
-            <th colspan="2">宝贝</th>
+            <th colspan="2">商品</th>
             <th width="120px">单价</th>
             <th width="120px">数量</th>
-            <th width="120px">商品总价</th>
-            <th width="120px">运费</th>
+            <th width="120px">金额</th>
             </thead>
-            <c:forEach items="${order.orderItems}" var="oi">
+            <c:forEach items="${order.orderItems}" var="orderItem">
                 <tr>
-                    <td><img width="50px" src="img/product/${oi.product.id}/1.jpg"></td>
+                    <td><img width="50px" src="img/product/${orderItem.product.id}/1.jpg"></td>
                     <td class="confirmPayOrderItemProductLink">
-                        <a href="#nowhere">${oi.product.name}</a>
+                        <a href="#nowhere">${orderItem.product.name}</a>
                     </td>
-                    <td>￥${oi.product.price}</td>
+                    <td>￥${orderItem.product.price}</td>
                     <td>1</td>
-                    <td><span class="conformPayProductPrice">￥${oi.product.price}</span></td>
-                    <td><span>快递 ： 0.00 </span></td>
+                    <td><span class="conformPayProductPrice">￥${orderItem.product.price}</span></td>
                 </tr>
             </c:forEach>
         </table>
 
         <div class="confirmPayOrderItemText pull-right">
-            实付款： <span class="confirmPayOrderItemSumPrice">￥${order.total}</span>
+            金额<span class="confirmPayOrderItemSumPrice">￥${order.total}</span>
         </div>
 
     </div>
@@ -221,8 +205,8 @@
                 <td>${order.order_code} <img width="23px" src="img/fore/confirmOrderTmall.png"></td>
             </tr>
             <tr>
-                <td>卖家昵称：</td>
-                <td>天猫商铺 <span class="confirmPayOrderDetailWangWangGif"></span></td>
+                <td>卖家</td>
+                <td>随心买 <span class="confirmPayOrderDetailWangWangGif"></span></td>
             </tr>
             <tr>
                 <td>收货信息：</td>
@@ -236,12 +220,10 @@
 
     </div>
     <div class="confirmPayButtonDiv">
-        <div class="confirmPayWarning">请收到货后，再确认收货！否则您可能钱货两空！</div>
+        <div class="confirmPayWarning">确认收货</div>
         <a href="orderConfirmed?order_id=${order.id}">
-            <button class="confirmPayButton">确认支付</button>
+            <button class="confirmPayButton">确认</button>
         </a>
     </div>
 </div>
 
-
-<%@include file="include/footer.jsp" %>

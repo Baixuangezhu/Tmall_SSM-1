@@ -50,15 +50,15 @@
                     <a  href="listCategory"><i class="fa fa-bars"></i> 分类管理</a>
                 </li>
                 <li>
-                    <a class="active-menu" href="listUser"><i class="fa fa-user"></i> 客户管理</a>
+                    <a class="active-menu" href="listUser"><i class="fa fa-user"></i> 用户管理</a>
                 </li>
                 <li>
                     <a href="listOrder"><i class="fa fa-list-alt"></i> 订单管理</a>
                 </li>
-                <li>
-                    <%-- <a href="listLink"><i class="fa fa-link"></i> 推荐链接管理</a>--%>
+                <%--<li>
+                    &lt;%&ndash; <a href="listLink"><i class="fa fa-link"></i> 推荐链接管理</a>&ndash;%&gt;
                     <a href="listStaff"><i class="fa fa-user"></i> 店员管理</a>
-                </li>
+                </li>--%>
             </ul>
         </div>
 
@@ -69,8 +69,9 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="page-header">
-                        客户管理
-                        <small> - 编号:${user.id} 修改密码</small>
+                        用户管理
+                        <small> - 编号:${user.id} </small>
+                        <small> - 用户:${user.name} </small>
                     </h1>
                 </div>
             </div>
@@ -87,13 +88,20 @@
                     <!-- Advanced Tables -->
                     <div class="panel panel-success">
                         <div class="panel-heading">
-                            修改密码
+                            修改信息
                         </div>
                         <div class="panel-body">
                             <form action="updateUser" role="form">
                                 <input type="hidden" name="id" value="${user.id}">
-                                <label>新密码：</label>
-                                <input class="form-control" type="text" name="password" placeholder="请在这里重新输入密码"><br>
+
+                                <label>修改昵称:</label>
+                                <input class="form-control" type="text" name="name" value="${user.name}"><br>
+
+                                <label>修改密码：</label>
+                                <input class="form-control" type="text" name="password" value="${user.password}"><br>
+                               <%-- <input class="form-control" type="text" name="password" placeholder="${user.password}"><br>--%>
+
+
                                 <input type="submit" class="btn btn-success pull-right" value="确认修改">
                             </form>
 

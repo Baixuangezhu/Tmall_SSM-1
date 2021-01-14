@@ -27,9 +27,10 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void updatePassword(int id, String password) {
+	public void updateData(int id, String password,String name) {
 		User user = get(id);
 		user.setPassword(password);
+		user.setName(name);
 		userMapper.updateByPrimaryKey(user);
 	}
 
