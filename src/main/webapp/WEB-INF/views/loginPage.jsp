@@ -142,6 +142,9 @@
         });
     })
 </script>
+
+
+
 <div class="content">
     <div class="login-banner-wrap" style="width: 100%; background-color: rgb(223, 226, 231);" title="">
         <div class="inner">
@@ -180,8 +183,6 @@
                     </div>
 
                     <div style="margin-top: 20px;">
-                       <%-- <a class="notImplementLink" href="#nowhere">忘记登录密码</a>--%>
-                       <%-- <a href="registerPage" class="pull-right">免费注册</a>--%>
                     </div>
                 </form>
             </div>

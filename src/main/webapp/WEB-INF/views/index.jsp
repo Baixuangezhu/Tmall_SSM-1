@@ -150,80 +150,6 @@
 
 
 
-<%--
-&lt;%&ndash; 轮播 &ndash;%&gt;
-<div class="category-con">
-    <div class="workArea">
-
-        &lt;%&ndash; 分类栏 &ndash;%&gt;
-        <div class="category-tab-content">
-            <ul class="normal-nav">
-                <c:forEach items="${categories}" var="c">
-                    <li class="nav-item" category_id="${c.id}">${c.name}</li>
-                </c:forEach>
-            </ul>
-            <%@include file="include/hot-word-con.jsp" %>
-
-        </div>
-
-        <script type="text/javascript">
-            function showProductsByCategoryId(category_id) {
-                $("div.hot-word-con[category_id=" + category_id + "]").show();
-            }
-
-            function hideProductsByCategoryId(category_id) {
-                $("div.hot-word-con[category_id=" + category_id + "]").hide();
-            }
-
-            $(function () {
-                $("li.nav-item").mouseenter(function () {
-                    var category_id = $(this).attr("category_id");
-                    showProductsByCategoryId(category_id);
-                });
-                $("li.nav-item").mouseleave(function () {
-                    var category_id = $(this).attr("category_id");
-                    hideProductsByCategoryId(category_id);
-                });
-                $("div.hot-word-con").mouseenter(function () {
-                    var category_id = $(this).attr("category_id");
-                    showProductsByCategoryId(category_id);
-                });
-                $("div.hot-word-con").mouseleave(function () {
-                    var category_id = $(this).attr("category_id");
-                    hideProductsByCategoryId(category_id);
-                });
-            });
-        </script>
-
-        <div style="clear: both;"></div>
-
-        <div data-ride="carousel" class="carousel-of-product carousel" id="carousel-of-product">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li class="active" data-slide-to="0" data-target="#carousel-of-product"></li>
-                <li data-slide-to="1" data-target="#carousel-of-product" class=""></li>
-                <li data-slide-to="2" data-target="#carousel-of-product" class=""></li>
-                <li data-slide-to="3" data-target="#carousel-of-product" class=""></li>
-            </ol>
-            <!-- Wrapper for slides -->
-            <div role="listbox" class="carousel-inner">
-                <div class="item active">
-                    <img src="img/fore/carousel1.jpg" class="carousel carouselImage">
-                </div>
-                <div class="item">
-                    <img src="img/fore/carousel2.jpg" class="carouselImage">
-                </div>
-                <div class="item">
-                    <img src="img/fore/carousel3.jpg" class="carouselImage">
-                </div>
-                <div class="item">
-                    <img src="img/fore/carousel4.jpg" class="carouselImage">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>--%>
-
 
 <div style="clear: both;"></div>
 
@@ -241,6 +167,7 @@
                         <br>
                         <c:forEach items="${c.products}" var="p" varStatus="status">
                             <c:if test="${status.count<=5}">
+                                <%--转发到控制器--%>
                                 <a class="grid" href="showProduct?product_id=${p.id}">
                                     <div class="productItem">
                                         <img class="floor-item-img" src="img/product/${p.id}/1.jpg">
